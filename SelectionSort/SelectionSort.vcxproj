@@ -188,6 +188,9 @@
   <ItemGroup>
     <ClInclude Include="_timer.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="output_example.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\IntelOpenCL.targets" />

@@ -32,4 +32,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="output_example.txt" />
+  </ItemGroup>
 </Project>

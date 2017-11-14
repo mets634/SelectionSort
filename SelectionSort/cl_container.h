@@ -34,8 +34,6 @@ private:
 
 	string code;
 
-	const cl_command_queue_properties qProperties = CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE; 
-
 	cl_int ret;
 	_timer timer;
 
@@ -71,7 +69,7 @@ private:
 	}
 
 	void create_command_queue() {
-		command_queue = clCreateCommandQueue(context, device, qProperties, &ret);
+		command_queue = clCreateCommandQueue(context, device, NULL, &ret);
 		
 		// log creation
 		stringstream s;
@@ -190,6 +188,7 @@ private:
 		// run sorting
 		timer.start();
 		ret = clEnqueueNDRangeKernel(command_queue, kernel, 1, 0, &count, NULL, NULL, NULL, NULL);
+		clFinish(command_queue);
 		timer.stop();
 
 		s2 << endl << "Finished running. Elapsed time = " << timer.get_time() << " seconds. Return code = " << getErrorString(ret);
@@ -288,8 +287,8 @@ public:
 			// log sorting execution
 			stringstream s1;
 			s1 << "Sorting " << count << " numbers. Array data dump:" << endl;
-			for (auto k = in.begin(); k != in.end(); ++k)
-				s1 << *k << " ";
+			//for (auto k = in.begin(); k != in.end(); ++k)
+				//s1 << *k << " ";
 			_log(s1.str());
 
 			create_memory(in, out);
@@ -301,8 +300,8 @@ public:
 			// log end of sorting
 			stringstream s2;
 			s2 << "Finished sorting. Array data dump: " << endl;
-			for (auto k = out.begin(); k != out.end(); ++k)
-				s2 << *k << " ";
+			//for (auto k = out.begin(); k != out.end(); ++k)
+				//s2 << *k << " ";
 			_log(s2.str());
 
 			return out;

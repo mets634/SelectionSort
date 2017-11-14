@@ -1,0 +1,29 @@
+This is the output from running both the parallel algorithm (with GPU) and the non-parallel algorithm on 2^15 randomly generated integers.
+Summary: parallel took 1 second, non-parallel took 39 seconds!!!!!
+
+LOG DUMP:
+
+	LOG: Beginning initialization...
+	LOG: Set platform to ID 03401698. NUMBER_OF_PLATFORMS = 3. Return code = CL_SUCCESS
+	LOG: Set device to ID 00AE8DA8. NUMBER_OF_DEVICES = 1. Return code = CL_SUCCESS
+	LOG: Created context. Return code = CL_SUCCESS
+	LOG: Created command queue. Return code = CL_SUCCESS
+	LOG: Read and compiled CL-code. Return code = CL_SUCCESS
+	LOG: Created program. Return code = CL_SUCCESS
+	LOG: Created kernel. Return code = CL_SUCCESS
+	LOG: Finished initialization
+	LOG: Sorting 32768 numbers. Array data dump:
+
+	LOG: Created input memory. count = 131072. Return code = CL_SUCCESS
+	Created output memory. count = 131072. Return code = CL_SUCCESS
+	LOG: Set argument1 to input memory. Return code = CL_SUCCESS
+	Set argument2 to output memory. Return code = CL_SUCCESS
+	Set argument3 to count. Return code = CL_SUCCESS
+	LOG: Running on GPU with 32768 global-items...
+	LOG:
+	Finished running. Elapsed time = 1 seconds. Return code = CL_SUCCESS
+	LOG: Read from output GPU memory. Return code = CL_SUCCESS
+	LOG: Finished sorting. Array data dump:
+
+	LOG: Running algorithm without parallel...
+	LOG: Finished non-parallel run. Elapsed time = 39
